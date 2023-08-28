@@ -18,5 +18,24 @@ press.addEventListener("click", function(){
 })
 
 //Oppgave 3
+    // Hent tekst og output elementene
+    const inputTekst = document.getElementById("input");
+    const outputTekst = document.getElementById("input-text");
+
+    inputTekst.addEventListener("input", function(){
+
+        const inputElement = inputTekst.value;
+
+        outputTekst.textContent = inputElement;
+    })
 
 
+//Oppgave 4
+const list = document.getElementById("ul");
+const printList = document.getElementById("write-list")
+
+const myList = ["hey", "ho", "lets go"]
+
+printList.addEventListener("click", () =>{
+    for (let i = 0; i < myList.length; i++)
+})
