@@ -88,9 +88,11 @@ const deleteList = document.getElementById("list");
 const btnDelete = document.getElementById("remove-li");
 
 btnDelete.addEventListener("click", function() {
-   while (deleteList.firstChild) {
-    deleteList.removeChild(deleteList.firstChild)
+   const firstListItem = deleteList.querySelector("li:first-child");
+   if (firstListItem){
+       deleteList.removeChild(firstListItem)
    }
+   
 
 });
 
