@@ -96,3 +96,21 @@ btnDelete.addEventListener("click", function() {
 
 });
 
+//Oppgave 7
+const limited = document.getElementById("name");
+const create = document.getElementById("order");
+
+limited.addEventListener("input", function () {
+    const maxLength = 4;
+
+    if(limited.value.length > maxLength) {
+        limited.value = limited.value.slice(0, maxLength); //truncate input feltet til max length
+        create.style.border = "1px solid red";
+        create.disabled = true; //disable knappen
+    }else {
+        limited.style.border = "1px solid initial";
+        create.disabled = false; //enable knappen
+    }
+})
+
+
