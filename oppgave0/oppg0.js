@@ -113,4 +113,21 @@ limited.addEventListener("input", function () {
     }
 })
 
+//Oppgave 8
+//source: https://www.tutorialspoint.com/How-to-set-the-color-of-an-elements-border-with-JavaScript
 
+const childOdd = document.querySelectorAll(".children li:nth-child(odd)");
+const childEven = document.querySelectorAll(".children li:nth-child(even)");
+
+const btnChild = document.getElementById("color");
+
+btnChild.addEventListener('click',  () => {
+   for (let elem of childOdd) {
+    elem.style.border = "5px solid green";
+    console.log(elem);
+   }
+   for (let elem of childEven) {
+    elem.style.border = "5px solid pink";
+    console.log(elem);
+   }
+})
