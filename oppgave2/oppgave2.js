@@ -17,3 +17,52 @@ const nameInput = document.getElementById("name");
 const ageInput = document.getElementById("age");
 const filterBtn = document.getElementById("filter");
 const userList = document.getElementById("users");
+
+const writeUsers = () => {
+    users.map(user=>{
+        const {id, name, age} = user;
+
+        let li = document.createElement("li");
+        li.innerHTML = `ID: ${id} - Name: ${name} - Age: ${age}`;
+        userList.appendChild(li);
+
+    })
+} 
+
+writeUsers();
+
+
+const handleSearch = (e) => {
+
+    userList.innerHTML = "";
+
+    let foundUser = users.filter(user =>user.name.toLowerCase().includes(e.target.value.toLowerCase()));
+
+    foundUser.map(user =>{
+        const {id, name, age} = user;
+
+        let li = document.createElement("li");
+        li.innerHTML = `ID: ${id} - Name: ${name} - Age:${age}`;
+        userList.appendChild(li);
+    });
+
+}
+    const handleFilter = () =>{
+        userList.innerHTML = "";
+
+        let age = ageInput.value;
+        let userByAge = users.filter(user=>user.age >= age);
+        
+        userByAge.map(user=>{
+
+            const {id, name, age} = user;
+            let li = document.createElement("li");
+            li.innerHTML = `ID: ${id} - Name: ${name} - Age:${age}`;
+            userList.appendChild(li);
+        });
+
+       
+    }
+
+nameInput.addEventListener("keypress", handleSearch);
+filterBtn.addEventListener("click", handleFilter);
